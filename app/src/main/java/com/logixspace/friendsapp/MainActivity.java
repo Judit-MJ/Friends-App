@@ -1,5 +1,6 @@
 package com.logixspace.friendsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
         EditText ed1,ed2,ed3,ed4;
-        AppCompatButton b1;
+        AppCompatButton b1,b2;
         String apiurl="https://friendsapi-re5a.onrender.com/adddata";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         ed3=(EditText) findViewById(R.id.frnd);
         ed4=(EditText) findViewById(R.id.desc);
         b1=(AppCompatButton) findViewById(R.id.log);
+        b2=(AppCompatButton) findViewById(R.id.fri);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
+                                ed1.setText(" ");
+                                ed2.setText(" ");
+                                ed3.setText(" ");
+                                ed4.setText(" ");
                                 Toast.makeText(getApplicationContext(), "Added Successfully", Toast.LENGTH_LONG).show();
                             }
                         },
@@ -79,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 //Request Queue
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
                 requestQueue.add(jsonObjectRequest);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(), Viewfriends.class);
+                startActivity(i);
             }
         });
 

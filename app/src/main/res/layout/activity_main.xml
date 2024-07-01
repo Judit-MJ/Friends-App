@@ -54,6 +54,14 @@
         android:background="#1D0449"
         android:layout_margin="30px"
         android:id="@+id/log"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Friends"
+        android:textColor="@color/white"
+        android:background="#1D0449"
+        android:layout_margin="30px"
+        android:id="@+id/fri"/>
 
 
 </LinearLayout>
